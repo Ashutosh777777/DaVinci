@@ -1,0 +1,10 @@
+services:
+  blogforge:
+    build: .
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      - ./outputs:/app/outputs
+      - ./blogforge.sqlite3:/app/blogforge.sqlite3

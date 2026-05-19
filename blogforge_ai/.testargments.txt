@@ -1,0 +1,44 @@
+Build Your First LLM Product
+
+LLMs come in three flavors:
+
+Base models: These are similar to the autocomplete functionality in your phone. Better for fine-tuning to learn a new skill.
+
+Chat/Instruct models: These are chatbots that are good at making conversations.
+
+Reasoning/Thinking models: These are reasoning models that are good at problem solving
+
+Hybrid models: A combination of Chat/Instruct models and Thinking/Reasoning models.
+
+
+Synthesizing information: Answering a question in depth with a structured, well researched answer and often including a summary.
+
+Fleshing out a skeleton: Form a couple of notes, building out a well crafted email, or a blog post, and iterating on it with you until perfect.
+
+Coding: The ability to write and debug code is remarkable, far overtaken Stack Overflow as the resource for engineers.
+
+In the early days, neural networks were trained to predict the next character but the problem was that there was a small no. of characters possible. Next, we tried doing it with words, but an opposite problem was seen, English language is huge and so the it leads to enormous vocabs with rare words omitted.
+
+So a solution was to use tokens that are not necessarily characters or words, they are pieces of texts that can be small or big that the LLM uses as inputs
+
+Every individual call that we make to an LLM is stateless.
+
+We pass in the whole conversation so far, just to help it understand the entire context. There is no memory, all the things happened so far is passed with the current request.
+
+Context Window: The maximum amount of data that you are able pass in a single request to an LLM. (Considering the amount of data that you have already passed)
+
+LLMs are trained on mostly three types if inputs, Natural Languages like English, Markdowns, accepting and creating markdowns, and JSON.
+
+When while prompting you give the LLM an example of how the output should look like, it's called one shot prompting. When giving multiple examples, it's called mult-ishot prompting
+
+Defining agents:
+
+1. LLM that control the workflow
+
+2. An LLM agent runs tools in a loop to acheive goals
+
+3. Memory, planning, autonomy, LLM orchestration via tools
+
+
+
+Learn gradio, it's amazing.

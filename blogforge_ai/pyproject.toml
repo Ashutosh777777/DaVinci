@@ -1,0 +1,27 @@
+[project]
+name = "blogforge-ai"
+version = "0.1.0"
+description = "CrewAI multi-agent blog planner, writer, reviewer, image generator and DEV.to publisher"
+requires-python = ">=3.10,<3.13"
+dependencies = [
+  "crewai[tools]>=0.102.0",
+  "crewai-tools>=0.36.0",
+  "fastapi>=0.115.0",
+  "uvicorn[standard]>=0.30.0",
+  "jinja2>=3.1.4",
+  "python-dotenv>=1.0.1",
+  "pydantic>=2.8.0",
+  "pydantic-settings>=2.4.0",
+  "requests>=2.32.3",
+  "apscheduler>=3.10.4",
+  "python-multipart>=0.0.9",
+  "PyYAML>=6.0.2"
+]
+
+[project.scripts]
+blogforge = "blogforge_ai.main:main"
+blogforge-api = "blogforge_ai.api:run"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

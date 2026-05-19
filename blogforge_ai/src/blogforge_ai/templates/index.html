@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BlogForge AI</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <main class="container">
+    <section class="hero">
+      <p class="eyebrow">CrewAI multi-agent blog automation</p>
+      <h1>BlogForge AI</h1>
+      <p>Plan, write, review, generate visuals, and optionally post to DEV.to in one run.</p>
+    </section>
+
+    {% if created_job_id %}
+      <div class="notice">Job created: <code>{{ created_job_id }}</code></div>
+    {% endif %}
+
+    <section class="card">
+      <h2>Create a blog job</h2>
+      <form action="/jobs" method="post">
+        <label>Topic
+          <input name="topic" placeholder="e.g. How multi-agent AI can automate weekly blogging" required />
+        </label>
+        <label>Weekly notes
+          <textarea name="weekly_notes" rows="8" placeholder="Paste notes, bullets, ideas, links, observations..."></textarea>
+        </label>
+        <div class="grid">
+          <label>Schedule date/time
+            <input name="scheduled_for" type="datetime-local" />
+          </label>
+          <label>Audience
+            <input name="target_audience" value="developers and tech readers" />
+          </label>
+        </div>
+        <label>Tone
+          <input name="tone" value="clear, practical and engaging" />
+        </label>
+        <label>DEV.to tags, comma separated
+          <input name="devto_tags" value="ai,programming,productivity" />
+        </label>
+        <div class="checks">
+          <label><input type="checkbox" name="generate_images" checked /> Generate cover image</label>
+          <label><input type="checkbox" name="publish_to_devto" /> Create DEV.to draft/post</label>
+        </div>
+        <button type="submit">Run / Schedule Blog</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Recent jobs</h2>
+      <table>
+        <thead><tr><th>Status</th><th>Topic</th><th>Scheduled</th><th>Updated</th><th>Result</th></tr></thead>
+        <tbody>
+        {% for job in jobs %}
+          <tr>
+            <td><span class="pill">{{ job.status }}</span></td>
+            <td>{{ job.request.topic }}</td>
+            <td>{{ job.scheduled_for or "now" }}</td>
+            <td>{{ job.updated_at }}</td>
+            <td>
+              {% if job.result and job.result.markdown_path %}
+                <code>{{ job.result.markdown_path }}</code>
+              {% elif job.error %}
+                {{ job.error }}
+              {% else %}
+                —
+              {% endif %}
+            </td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,55 @@
+planning_task:
+  description: >
+    Use the weekly notes and topic below to create a detailed blog plan.
+
+    Topic: {topic}
+    Weekly notes: {weekly_notes}
+    Audience: {target_audience}
+    Tone: {tone}
+
+    Use web search when useful. Return:
+    1. final title
+    2. reader promise
+    3. outline with H2/H3 sections
+    4. key points per section
+    5. suggested DEV.to tags
+    6. points that need caution or verification
+  expected_output: >
+    A structured blog plan in Markdown with a title, outline, key points, tags, and caution notes.
+  agent: content_planner
+  markdown: true
+
+writing_task:
+  description: >
+    Write the full blog in Markdown from the approved plan. Include:
+    - SEO-friendly title
+    - short intro
+    - clear sections
+    - concrete examples or workflow steps
+    - bullet takeaways where useful
+    - conclusion
+    - no fenced wrapper around the whole answer
+  expected_output: >
+    A complete Markdown blog draft, ready for editing.
+  agent: blog_writer
+  markdown: true
+
+review_task:
+  description: >
+    Review the draft. Improve clarity, tone, flow and structure. Keep the writing human and practical.
+    Remove weak claims, repetition and vague phrasing. Preserve Markdown formatting.
+    Return only the final edited Markdown blog.
+  expected_output: >
+    A final, polished Markdown blog suitable for DEV.to.
+  agent: editor_reviewer
+  markdown: true
+
+image_prompt_task:
+  description: >
+    Based on the final edited blog, create visual prompts.
+    Return exactly this format:
+    COVER_PROMPT: <one detailed prompt for a clean modern technical blog cover image, no text in image>
+    INLINE_PROMPT: <one optional diagram/illustration prompt, no text in image>
+  expected_output: >
+    Two image prompts labeled COVER_PROMPT and INLINE_PROMPT.
+  agent: image_director
