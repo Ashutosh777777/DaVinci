@@ -1,5 +1,5 @@
 <img width="1160" height="699" alt="image" src="https://github.com/user-attachments/assets/d5740311-b37b-4153-8b3d-f2f9283a141d" />
-# 🔥 DaVinci
+## 🔥 DaVinci
 
 > A multi-agent AI system that researches, writes, reviews, illustrates, and publishes blog posts to DEV.to — fully automated, scheduled from a local dashboard.
 
@@ -120,11 +120,9 @@ MIT
 Scheduled jobs are stored in SQLite and survive server restarts.
 
 ---
-
 ## Project Structure
 
-
-
+```
 blogforge_ai/
 ├── src/
 │   └── blogforge_ai/
@@ -141,3 +139,4 @@ blogforge_ai/
 ├── .env                            # Your API keys (not committed)
 ├── pyproject.toml
 └── README.md
+```
