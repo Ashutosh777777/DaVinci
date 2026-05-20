@@ -3,7 +3,6 @@
 
 > A multi-agent AI system that researches, writes, reviews, illustrates, and publishes blog posts to DEV.to — fully automated, scheduled from a local dashboard.
 
-![DaVinci Architecture](architecture.png)
 
 ---
 
