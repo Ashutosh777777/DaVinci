@@ -28,10 +28,6 @@ class BlogForgeCrew:
             model=model,
             api_key=settings.groq_api_key,
             temperature=0.7,
-            cache={
-                "no-cache": True,
-                "no-store": True,
-            },
         )
 
     def content_planner(self) -> Agent:

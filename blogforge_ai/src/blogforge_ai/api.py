@@ -1,3 +1,8 @@
+from blogforge_ai.litellm_groq_patch import patch_litellm_for_groq
+patch_litellm_for_groq()
+
+
+
 from pathlib import Path
 from datetime import datetime
 from zoneinfo import ZoneInfo
